@@ -1,6 +1,21 @@
+import { Profiler, useState } from "react";
+import type { TableRow } from "../../table/types";
+import { Table } from "../../table/table";
+
+const table = new Table();
+
 const RTableRoot = () => {
-  return <div>
-    <h1 className="text-5xl font-bold">React Component</h1>
+  const [tableData, setTableData] = useState<TableRow[]>(table.tableData);
+  const clearData = () => setTableData([]);
+  const resetData = () => setTableData(table.tableData);
+
+  return <Profiler id="react-table-data" onRender={(...args) => console.log(args)}>
+    <div>
+    <div>
+      <h1 className="text-5xl font-bold">React Component</h1>
+      <button onClick={clearData}>Clear data</button>
+      <button onClick={resetData}>Reset data</button>
+    </div>
     <div className="overflow-x-auto">
       <table className="table">
         <thead>
@@ -12,31 +27,19 @@ const RTableRoot = () => {
           </tr>
         </thead>
         <tbody>
-          {/* row 1 */}
-          <tr>
-            <th>1</th>
-            <td>Cy Ganderton</td>
-            <td>Quality Control Specialist</td>
-            <td>Blue</td>
+          {tableData.map(({ index, name, job, favouriteColor}) => {
+            return <tr key={index}>
+            <th>{index}</th>
+            <td>{name}</td>
+            <td>{job}</td>
+            <td>{favouriteColor}</td>
           </tr>
-          {/* row 2 */}
-          <tr>
-            <th>2</th>
-            <td>Hart Hagerty</td>
-            <td>Desktop Support Technician</td>
-            <td>Purple</td>
-          </tr>
-          {/* row 3 */}
-          <tr>
-            <th>3</th>
-            <td>Brice Swyre</td>
-            <td>Tax Accountant</td>
-            <td>Red</td>
-          </tr>
+          })}
         </tbody>
       </table>
     </div>
   </div>
+  </Profiler>
 }
 
 export default RTableRoot;

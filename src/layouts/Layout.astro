@@ -4,6 +4,8 @@ interface Props {
 }
 
 const { title } = Astro.props;
+const { pathname } = Astro.url;
+
 ---
 
 <!doctype html>
@@ -19,16 +21,23 @@ const { title } = Astro.props;
 	<body>
 		<div class="navbar bg-primary text-primary-content">
 			<div class="flex-1">
-				<a href="/" class="btn btn-ghost normal-case text-xl">daisyUI</a>
+				<a href="/" class="btn btn-ghost normal-case text-xl">JS Battle</a>
 			</div>
 			<div class="flex-none">
 				<ul class="menu menu-horizontal px-1">
-						<li><a href="/react/">React</a></li>
-						<li><a href="/solid/">Solid</a></li>
+						<li><a href="/react/" class:list={[{
+							"active": pathname === "/react/"
+						}]}>React</a></li>
+						<li><a href="/solid/" class:list={[{
+							"active": pathname === "/solid/"
+						}]}>Solid</a></li>
 				</ul>
+				{}
 			</div>
 		</div>
-		<slot />
+		<div class="p-8">
+			<slot />
+		</div>
 	</body>
 </html>
 

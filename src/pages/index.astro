@@ -4,12 +4,12 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout title="Welcome to Astro.">
 	<main>
-		<div class="hero min-h-screen">
+		<div class="hero h-[75vh]">
 			<div class="hero-content text-center">
-				<div class="flex w-full h">
+				<div class="flex flex-col lg:flex-row">
 					<div class="grid flex-grow card rounded-box place-items-center">
-						<div class="card w-96 bg-base-100 shadow-xl image-full">
-							<figure><img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="React js logo" /></figure>
+						<div class="card w-96 h-50 bg-base-100 shadow-xl image-full">
+							<figure><img src="/react-logo.png" alt="React js logo" /></figure>
 							<div class="card-body">
 								<h2 class="card-title">ReactJS</h2>
 								<p>Powered by VirtualDOM</p>
@@ -19,10 +19,10 @@ import Layout from '../layouts/Layout.astro';
 							</div>
 						</div>
 						</div>
-					<div class="divider divider-horizontal">OR</div>
+					<div class="divider lg:divider-horizontal">OR</div>
 					<div class="grid flex-grow card marker:rounded-box place-items-center">
-						<div class="card w-96 bg-base-100 shadow-xl image-full">
-							<figure><img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Solid js logo" /></figure>
+						<div class="card w-96 h-50 bg-base-100 shadow-xl image-full">
+							<figure><img class="object-contain" src="/solid-js-logo.jpeg" alt="Solid js logo" /></figure>
 							<div class="card-body">
 								<h2 class="card-title">Solid.JS</h2>
 								<p>Signals-driven reactivity</p>
