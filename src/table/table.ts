@@ -4,14 +4,31 @@ export class Table {
   #tableData: TableRow[];
 
   constructor(){
-    this.#tableData = initTableRows();
+    this.#tableData = [];
   }
 
+  fillTableRows = () => {
+    const tableRows = initTableRows();
+    this.#tableData = tableRows;
+  }
+
+  replaceSomeTableRows = () => {
+    const tableRows = updateSomeTableRows(this.#tableData);
+    this.#tableData = tableRows;
+  }
+
+  deleteSomeTableRows = () => {
+    const tableRows = deleteSomeTableRows(this.#tableData);
+    this.#tableData = tableRows;
+  }
+
+  resetTableRows = () => this.#tableData = [];
+
+  
   get tableData(){
     return this.#tableData;
   }
 }
-
 
 const ROWS_COUNT = 1000
 
@@ -22,4 +39,17 @@ const initTableRows = (): TableRow[] => {
     job: "Quality Control Specialist",
     favouriteColor: "Blue"
   }));
+}
+
+const updateSomeTableRows = (oldTableRows: TableRow[]): TableRow[] => {
+  return oldTableRows.map((oldTableRow, index) => index % 10 === 0 ? {
+    index,
+    name: "Karol Kosek",
+    job: "Quality Control Specialist",
+    favouriteColor: "Blue"
+  }: oldTableRow)
+}
+
+const deleteSomeTableRows = (oldTableRows: TableRow[]): TableRow[] => {
+  return oldTableRows.filter((_, index) =>index % 10 !== 0)
 }

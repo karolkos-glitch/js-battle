@@ -1,3 +1,4 @@
+ /** @jsxImportSource solid-js */
 import { createSignal } from "solid-js";
 import type { TableRow } from "../../table/types";
 import { Table } from "../../table/table";
@@ -6,14 +7,33 @@ const table = new Table();
 
 const STableRoot = () => {
   const [tableData, setTableData] = createSignal<TableRow[]>(table.tableData);
-  const clearData = () => setTableData([]);
-  const resetData = () => setTableData(table.tableData);
+   const fillData = () => {
+    table.fillTableRows();
+    setTableData(table.tableData);
+  }
+  const replaceSomeRows = () => {
+    table.replaceSomeTableRows();
+    setTableData(table.tableData);
+  }
 
+  const removeSomeRows = () => {
+    table.deleteSomeTableRows();
+    setTableData(table.tableData);
+  }
+
+  const resetTableRows = () => {
+    table.resetTableRows();
+    setTableData(table.tableData);
+  }
   return <div>
     <div>
       <h1 class="text-5xl font-bold">Solid Component</h1>
-      <button onClick={clearData}>Clear data</button>
-      <button onClick={resetData}>Reset data</button>
+      <div class="join join-horizontal">
+        <button class="join-item btn btn-primary" onClick={fillData}>Fill the data</button>
+        <button class="join-item btn btn-secondary"onClick={replaceSomeRows}>Replace some rows</button>
+        <button class="join-item btn btn-accent" onClick={removeSomeRows}>Remove some rows</button>
+        <button class="join-item btn btn-neutral" onClick={resetTableRows}>Reset all table rows</button>
+      </div>
     </div>
    <div class="overflow-x-auto">
     <table class="table">

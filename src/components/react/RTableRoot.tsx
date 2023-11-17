@@ -1,4 +1,4 @@
-import { Profiler, useState } from "react";
+import { useState } from "react";
 import type { TableRow } from "../../table/types";
 import { Table } from "../../table/table";
 
@@ -6,15 +6,34 @@ const table = new Table();
 
 const RTableRoot = () => {
   const [tableData, setTableData] = useState<TableRow[]>(table.tableData);
-  const clearData = () => setTableData([]);
-  const resetData = () => setTableData(table.tableData);
+  const fillData = () => {
+    table.fillTableRows();
+    setTableData(table.tableData);
+  }
+  const replaceSomeRows = () => {
+    table.replaceSomeTableRows();
+    setTableData(table.tableData);
+  }
 
-  return <Profiler id="react-table-data" onRender={(...args) => console.log(args)}>
-    <div>
+  const removeSomeRows = () => {
+    table.deleteSomeTableRows();
+    setTableData(table.tableData);
+  }
+
+  const resetTableRows = () => {
+    table.resetTableRows();
+    setTableData(table.tableData);
+  }
+
+  return <div>
     <div>
       <h1 className="text-5xl font-bold">React Component</h1>
-      <button onClick={clearData}>Clear data</button>
-      <button onClick={resetData}>Reset data</button>
+      <div className="join join-horizontal">
+        <button className="join-item btn btn-primary" onClick={fillData}>Fill the data</button>
+        <button className="join-item btn btn-secondary" onClick={replaceSomeRows}>Replace some rows</button>
+        <button className="join-item btn btn-accent" onClick={removeSomeRows}>Remove some rows</button>
+        <button className="join-item btn btn-neutral" onClick={resetTableRows}>Reset all table rows</button>
+      </div>
     </div>
     <div className="overflow-x-auto">
       <table className="table">
@@ -39,7 +58,7 @@ const RTableRoot = () => {
       </table>
     </div>
   </div>
-  </Profiler>
+
 }
 
 export default RTableRoot;
