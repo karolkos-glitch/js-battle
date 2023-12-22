@@ -1,7 +1,7 @@
 {
-  "name": "solid-react-astro",
+  "name": "js-battle",
   "type": "module",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -14,16 +14,19 @@
     "@astrojs/react": "^3.0.4",
     "@astrojs/solid-js": "^3.0.2",
     "@astrojs/tailwind": "^5.0.2",
-    "@types/react": "^18.0.21",
-    "@types/react-dom": "^18.0.6",
     "astro": "^3.4.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "solid-js": "^1.4.3",
-    "tailwindcss": "^3.0.24",
-    "typescript": "^5.2.2"
+    "solid-js": "^1.4.3"
+
   },
   "devDependencies": {
-    "daisyui": "^3.9.4"
+    "@playwright/test": "^1.40.0",
+    "@types/node": "^20.9.1",
+    "@types/react": "^18.0.21",
+    "@types/react-dom": "^18.0.6",
+    "daisyui": "^3.9.4",
+    "tailwindcss": "^3.0.24",
+    "typescript": "^5.2.2"
   }
 }

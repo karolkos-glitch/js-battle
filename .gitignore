@@ -22,3 +22,7 @@ pnpm-debug.log*
 
 # IDE
 .vscode/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/

@@ -30,7 +30,7 @@ export class Table {
   }
 }
 
-const ROWS_COUNT = 1000
+const ROWS_COUNT = 10000
 
 const initTableRows = (): TableRow[] => {
   return new Array(ROWS_COUNT).fill(null).map((_element, index) => ({
