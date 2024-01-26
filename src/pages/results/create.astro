@@ -1,0 +1,10 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CreateResultsIsland from '../../components/vue/CreateResultIsland.vue';
+---
+
+<Layout title="React page">
+	<main>
+    <CreateResultsIsland client:only="vue"/>
+  </main>
+</Layout>
