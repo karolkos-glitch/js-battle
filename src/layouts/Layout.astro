@@ -6,6 +6,7 @@ interface Props {
 const { title } = Astro.props;
 const { pathname } = Astro.url;
 
+
 ---
 
 <!doctype html>
@@ -24,13 +25,16 @@ const { pathname } = Astro.url;
 				<a href="/" class="btn btn-ghost normal-case text-xl">JS Battle</a>
 			</div>
 			<div class="flex-none">
-				<ul class="menu menu-horizontal px-1">
+				<ul class="menu menu-horizontal px-1 gap-x-2">
 						<li><a href="/react/" class:list={[{
-							"active": pathname === "/react/"
+							"active": pathname === "/react/" || pathname === "/react"
 						}]}>React</a></li>
 						<li><a href="/solid/" class:list={[{
-							"active": pathname === "/solid/"
+							"active": pathname === "/solid/" || pathname === "/solid"
 						}]}>Solid</a></li>
+						<li><a href="/results/create/" class:list={[{
+							"active": pathname === "/results/create/" || pathname === "/results/create"
+						}]}>Results</a></li>
 				</ul>
 				{}
 			</div>
