@@ -1,6 +1,6 @@
 import { useState } from "react";
-import type { TableRow } from "../../table/types";
-import { Table } from "../../table/table";
+import type { TableRow } from "@jsbatt/table/types";
+import { Table } from "@jsbatt/table/table";
 
 const table = new Table();
 
