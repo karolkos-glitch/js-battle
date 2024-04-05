@@ -3,4 +3,4 @@ export type TableRow = {
   name: string;
   job: string;
   favouriteColor: string;
-}
+};
